@@ -1,7 +1,7 @@
 import os
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes, MessageHandler, filters
 
 # Enable logging
 logging.basicConfig(
@@ -206,7 +206,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     }
     
     if data in responses:
-        # Create a mock update object for the handler
         await responses[data](update, context)
 
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
